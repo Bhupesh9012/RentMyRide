@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 
+
 function Login() {
   const [data, setData] = useState({
     name: '',
@@ -55,8 +56,7 @@ function Login() {
           </button>
         </form>
       </div>
-
-      <h3 className="text-blue-700">If you are not register then <Link to="/sign-up"className="text-gray-800 hover:text-gray-600 ">SignUp</Link> </h3>
+      <h3 className="text-blue-700">Don't have an account? <Link to="/sign-up"className="text-gray-800 hover:text-gray-600 ">Signup</Link> </h3>
     </div>
   );
 }

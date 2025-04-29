@@ -8,7 +8,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo */}
@@ -45,15 +45,24 @@ function Navbar() {
             </Link>
             <Link
               to="/log-in"
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-            >
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
               Login/SignUp
             </Link>
             <Link
               to="/rent-out"
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-            >
+              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
               Rent Your Vehicle
+            </Link>
+             <Link to="/destination"><div className="flex items-center space-x-2 max-w-md mx-auto">
+              <input
+                type="text"
+                placeholder="Find Your Destination..."
+                className="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button className="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700">
+                Search
+              </button>
+            </div>
             </Link>
           </div>
 
@@ -61,21 +70,18 @@ function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-800 focus:outline-none"
-            >
+              className="text-gray-800 focus:outline-none">
               <svg
                 className="h-6 w-6"
                 fill="none"
                 stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+                viewBox="0 0 24 24">
                 {isOpen ? (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                    d="M6 18L18 6M6 6l12 12"/>
                 ) : (
                   <path
                     strokeLinecap="round"
@@ -106,6 +112,7 @@ function Navbar() {
             <a href="#" className="block text-gray-800 hover:text-gray-600">
               Contact
             </a>
+            
           </div>
         </div>
       )}
