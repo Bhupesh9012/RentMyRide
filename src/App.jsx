@@ -1,4 +1,5 @@
 import About from '../Components/About'
+import BrowseVehicle from '../Components/BrowseVehicle'
 import Contact from '../Components/Contact'
 import Home from '../Components/Home'
 import Login from '../Components/Login'
@@ -16,6 +17,9 @@ function App() {
     <div>
       <BrowserRouter>
       <Navbar/>
+     
+
+
       <Routes>
    
   
@@ -26,6 +30,7 @@ function App() {
         <Route path="/log-in" element={<Login/>} /> 
         <Route path="/sign-up" element={<Signup/>} /> 
         <Route path="/destination" element={<search/>} /> 
+        <Route path="/vehicle" element={<BrowseVehicle/>} /> 
         </Routes>
       
     

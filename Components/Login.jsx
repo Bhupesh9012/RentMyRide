@@ -31,7 +31,7 @@ function Login() {
             <input
               type="text"
               name="name"
-              placeholder="Enter your username"
+              placeholder="Enter your username or E-Mail Address"
               onChange={handleChange}
               value={data.name}
               className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"

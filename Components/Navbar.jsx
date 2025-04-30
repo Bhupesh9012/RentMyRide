@@ -8,14 +8,14 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav style={{ backgroundColor: "#c9def4" }}className="bg-white shadow-md sticky top-0 z-50">
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
            
               <img
-                src="../src/assets/logo.png"
+                src="../src/assets/logo.svg"
                 alt="Logo"
                 className="h-14 w-14"
               />
@@ -28,10 +28,10 @@ function Navbar() {
             <Link to="/" className="text-gray-800 hover:text-gray-600">
               Home
             </Link>
-            <Link to="/contact" className="text-gray-800 hover:text-gray-600">
-              Browse Vehical
+            <Link to="/vehicle" className="text-gray-800 hover:text-gray-600">
+              Browse Vehicle
             </Link>
-            <Link to="/contact" className="text-gray-800 hover:text-gray-600">
+            <Link to="/price" className="text-gray-800 hover:text-gray-600">
               Pricing
             </Link>
             <Link to="/about" className="text-gray-800 hover:text-gray-600">
@@ -57,7 +57,7 @@ function Navbar() {
               <input
                 type="text"
                 placeholder="Find Your Destination..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="bg-white w-full px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <button className="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700">
                 Search

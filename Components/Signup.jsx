@@ -8,6 +8,7 @@ import{ Link } from "react-router-dom";
 function SignUp() {
     const [data, setData] = useState({
       name: '',
+
     });
     const[password,setPassword]=useState('');
     const[Confirmpassword,setConfirmPassword]=useState('');
