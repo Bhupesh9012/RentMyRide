@@ -12,8 +12,10 @@ function BrowseVehicle() {
         {vehicle.map((cars, ind)=>(
             <div key={ind} className='shadow rounded-xl bg-gray-200 mx-2 my-2 w-60 '>
                 <img src={cars.carImage} alt="img" className='h-50 w-full '/>
+                <h4 className='text-sm ml-2 font-semibold'>{cars.Company}</h4>
                 <h4 className='text-sm ml-2 font-semibold'>{cars.CarName}</h4>
                 <h4 className='text-sm ml-2 font-semibold'>Rs. {cars.price}</h4>
+                <h4 className='text-sm ml-2 font-semibold'>Rs. {cars.model}</h4>
                 <div className='flex justify-center'>
                 <button className='bg-blue-600 rounded-xl px-12 text-white hover:bg-violet-300 cursor-pointer py-1 mb-2'>Rent</button>
                 </div>

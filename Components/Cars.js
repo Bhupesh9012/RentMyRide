@@ -7,11 +7,11 @@
         model: "2021"
     },
     {
-        Company:"BMW",
-        CarName:"BMW",
+        Company:"Maruti Suzuki",
+        CarName:"Swift",
         carImage: "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg",
-        price: "349",
-        model: "2021"
+        price: "1000/hr",
+        model: "2024"
     },
     {
         Company:"Mercides",

@@ -1,7 +1,6 @@
 // src/components/Navbar.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import About from "./About";
 import Home from "./Home";
 
 function Navbar() {
@@ -30,12 +29,6 @@ function Navbar() {
             </Link>
             <Link to="/vehicle" className="text-gray-800 hover:text-gray-600">
               Browse Vehicle
-            </Link>
-            <Link to="/price" className="text-gray-800 hover:text-gray-600">
-              Pricing
-            </Link>
-            <Link to="/about" className="text-gray-800 hover:text-gray-600">
-              About
             </Link>
             <Link to="/services" className="text-gray-800 hover:text-gray-600">
               Services
