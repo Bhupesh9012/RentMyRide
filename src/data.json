@@ -1,0 +1,71 @@
+const vehicles = [
+    // 1️⃣ ECONOMY HATCHBACKS (City Cars)
+    { id: 1, make: "Maruti Suzuki", model: "Alto K10", type: "Hatchback", pricePerDay: 950, seats: 4, fuelType: "Petrol", mileage: "24.7 kmpl", features: ["AC", "Power Steering", "AMT"], luggage: "177L", image: "https://example.com/alto.jpg" },
+    { id: 2, make: "Renault", model: "Kwid", type: "Hatchback", pricePerDay: 1100, seats: 5, fuelType: "Petrol", mileage: "22 kmpl", features: ["Touchscreen", "Rear Camera"], luggage: "279L", image: "https://example.com/kwid.jpg" },
+    { id: 3, make: "Datsun", model: "Redi-GO", type: "Hatchback", pricePerDay: 900, seats: 5, fuelType: "Petrol", mileage: "23 kmpl", features: ["Compact", "Low Maintenance"], luggage: "222L", image: "https://example.com/redigo.jpg" },
+    { id: 4, make: "Hyundai", model: "Santro", type: "Hatchback", pricePerDay: 1200, seats: 5, fuelType: "Petrol", mileage: "20 kmpl", features: ["Rear AC Vents", "Hill Assist"], luggage: "235L", image: "https://example.com/santro.jpg" },
+    { id: 5, make: "Tata", model: "Tiago", type: "Hatchback", pricePerDay: 1300, seats: 5, fuelType: "Petrol", mileage: "19 kmpl", features: ["Harmon Audio", "ESP"], luggage: "242L", image: "https://example.com/tiago.jpg" },
+  
+    // 2️⃣ PREMIUM HATCHBACKS
+    { id: 6, make: "Maruti Suzuki", model: "Baleno", type: "Hatchback", pricePerDay: 1600, seats: 5, fuelType: "Petrol", mileage: "22 kmpl", features: ["SmartPlay Pro", "Heads-Up Display"], luggage: "339L", image: "https://example.com/baleno.jpg" },
+    { id: 7, make: "Hyundai", model: "i20", type: "Hatchback", pricePerDay: 1800, seats: 5, fuelType: "Petrol", mileage: "20 kmpl", features: ["Bose Audio", "Ventilated Seats"], luggage: "311L", image: "https://example.com/i20.jpg" },
+    { id: 8, make: "Toyota", model: "Glanza", type: "Hatchback", pricePerDay: 1700, seats: 5, fuelType: "Petrol", mileage: "21 kmpl", features: ["Toyota Safety Sense"], luggage: "339L", image: "https://example.com/glanza.jpg" },
+    { id: 9, make: "Honda", model: "Jazz", type: "Hatchback", pricePerDay: 1500, seats: 5, fuelType: "Petrol", mileage: "18 kmpl", features: ["Magic Seats", "Lane Watch"], luggage: "354L", image: "https://example.com/jazz.jpg" },
+    { id: 10, make: "Volkswagen", model: "Polo", type: "Hatchback", pricePerDay: 1900, seats: 5, fuelType: "Petrol", mileage: "17 kmpl", features: ["German Build", "ESP"], luggage: "280L", image: "https://example.com/polo.jpg" },
+  
+    // 3️⃣ COMPACT SUVs
+    { id: 11, make: "Hyundai", model: "Venue", type: "SUV", pricePerDay: 2200, seats: 5, fuelType: "Diesel", mileage: "23 kmpl", features: ["BlueLink", "Sunroof"], clearance: "190mm", image: "https://example.com/venue.jpg" },
+    { id: 12, make: "Kia", model: "Sonet", type: "SUV", pricePerDay: 2300, seats: 5, fuelType: "Diesel", mileage: "24 kmpl", features: ["Bose Audio", "Ventilated Seats"], clearance: "205mm", image: "https://example.com/sonet.jpg" },
+    { id: 13, make: "Tata", model: "Nexon", type: "SUV", pricePerDay: 2100, seats: 5, fuelType: "Diesel", mileage: "22 kmpl", features: ["5-Star Safety", "Sunroof"], clearance: "209mm", image: "https://example.com/nexon.jpg" },
+    { id: 14, make: "Maruti Suzuki", model: "Brezza", type: "SUV", pricePerDay: 2000, seats: 5, fuelType: "Petrol", mileage: "19 kmpl", features: ["Mild Hybrid", "360 Camera"], clearance: "198mm", image: "https://example.com/brezza.jpg" },
+    { id: 15, make: "Mahindra", model: "XUV300", type: "SUV", pricePerDay: 2400, seats: 5, fuelType: "Diesel", mileage: "20 kmpl", features: ["Sunroof", "7 Airbags"], clearance: "180mm", image: "https://example.com/xuv300.jpg" },
+  
+    // 4️⃣ FULL-SIZE SUVs
+    { id: 16, make: "Hyundai", model: "Creta", type: "SUV", pricePerDay: 2800, seats: 5, fuelType: "Diesel", mileage: "18 kmpl", features: ["ADAS", "Panoramic Sunroof"], clearance: "190mm", image: "https://example.com/creta.jpg" },
+    { id: 17, make: "Kia", model: "Seltos", type: "SUV", pricePerDay: 2900, seats: 5, fuelType: "Petrol", mileage: "16 kmpl", features: ["Bose Audio", "Ventilated Seats"], clearance: "190mm", image: "https://example.com/seltos.jpg" },
+    { id: 18, make: "MG", model: "Hector", type: "SUV", pricePerDay: 3000, seats: 5, fuelType: "Petrol", mileage: "14 kmpl", features: ["Connected Car", "Panoramic Sunroof"], clearance: "192mm", image: "https://example.com/hector.jpg" },
+    { id: 19, make: "Toyota", model: "Urban Cruiser", type: "SUV", pricePerDay: 2600, seats: 5, fuelType: "Petrol", mileage: "17 kmpl", features: ["Toyota Reliability", "Mild Hybrid"], clearance: "200mm", image: "https://example.com/urbancruiser.jpg" },
+    { id: 20, make: "Volkswagen", model: "Taigun", type: "SUV", pricePerDay: 3100, seats: 5, fuelType: "Petrol", mileage: "18 kmpl", features: ["German Build", "Ventilated Seats"], clearance: "188mm", image: "https://example.com/taigun.jpg" },
+  
+    // 5️⃣ LUXURY CARS
+    { id: 21, make: "Mercedes-Benz", model: "A-Class", type: "Luxury", pricePerDay: 8000, seats: 5, fuelType: "Petrol", mileage: "14 kmpl", features: ["MBUX", "Ambient Lighting"], image: "https://example.com/aclass.jpg" },
+    { id: 22, make: "BMW", model: "2 Series", type: "Luxury", pricePerDay: 8500, seats: 5, fuelType: "Petrol", mileage: "13 kmpl", features: ["Live Cockpit", "Harman Kardon"], image: "https://example.com/2series.jpg" },
+    { id: 23, make: "Audi", model: "A3", type: "Luxury", pricePerDay: 8200, seats: 5, fuelType: "Petrol", mileage: "15 kmpl", features: ["Virtual Cockpit", "Quattro"], image: "https://example.com/a3.jpg" },
+    { id: 24, make: "Jaguar", model: "XE", type: "Luxury", pricePerDay: 9000, seats: 5, fuelType: "Petrol", mileage: "12 kmpl", features: ["InControl Touch", "Meridian Audio"], image: "https://example.com/xe.jpg" },
+    { id: 25, make: "Volvo", model: "S60", type: "Luxury", pricePerDay: 8800, seats: 5, fuelType: "Petrol", mileage: "14 kmpl", features: ["Pilot Assist", "Bowers & Wilkins"], image: "https://example.com/s60.jpg" },
+  
+    // 6️⃣ ELECTRIC VEHICLES
+    { id: 26, make: "Tata", model: "Nexon EV", type: "Electric", pricePerDay: 2500, seats: 5, range: "437 km", chargeTime: "60 mins (DC)", features: ["Ziptron Tech", "Sunroof"], image: "https://example.com/nexonev.jpg" },
+    { id: 27, make: "MG", model: "ZS EV", type: "Electric", pricePerDay: 2800, seats: 5, range: "461 km", chargeTime: "50 mins (DC)", features: ["Connected Car", "Panoramic Sunroof"], image: "https://example.com/zsev.jpg" },
+    { id: 28, make: "Hyundai", model: "Kona Electric", type: "Electric", pricePerDay: 3000, seats: 5, range: "452 km", chargeTime: "57 mins (DC)", features: ["BlueLink", "Ventilated Seats"], image: "https://example.com/kona.jpg" },
+    { id: 29, make: "Tata", model: "Tiago EV", type: "Electric", pricePerDay: 1800, seats: 5, range: "315 km", chargeTime: "65 mins (DC)", features: ["Harmon Audio", "ESP"], image: "https://example.com/tiagoev.jpg" },
+    { id: 30, make: "Mahindra", model: "XUV400", type: "Electric", pricePerDay: 2700, seats: 5, range: "456 km", chargeTime: "55 mins (DC)", features: ["AdrenoX", "Sunroof"], image: "https://example.com/xuv400.jpg" },
+  
+    // 7️⃣ MUVs (Family Cars)
+    { id: 31, make: "Toyota", model: "Innova Crysta", type: "MUV", pricePerDay: 3500, seats: 7, fuelType: "Diesel", mileage: "13 kmpl", features: ["Captain Seats", "Rear AC"], image: "https://example.com/innova.jpg" },
+    { id: 32, make: "Mahindra", model: "Marazzo", type: "MUV", pricePerDay: 2800, seats: 7, fuelType: "Diesel", mileage: "17 kmpl", features: ["Nappa Leather", "Dual AC"], image: "https://example.com/marazzo.jpg" },
+    { id: 33, make: "Kia", model: "Carens", type: "MUV", pricePerDay: 3000, seats: 7, fuelType: "Diesel", mileage: "16 kmpl", features: ["Bose Audio", "Ventilated Seats"], image: "https://example.com/carens.jpg" },
+    { id: 34, make: "Maruti Suzuki", model: "Ertiga", type: "MUV", pricePerDay: 2500, seats: 7, fuelType: "Petrol", mileage: "19 kmpl", features: ["SmartPlay", "Hill Hold"], image: "https://example.com/ertiga.jpg" },
+    { id: 35, make: "Renault", model: "Triber", type: "MUV", pricePerDay: 2200, seats: 7, fuelType: "Petrol", mileage: "18 kmpl", features: ["Modular Seats", "Touchscreen"], image: "https://example.com/triber.jpg" },
+  
+    // 8️⃣ PREMIUM BIKES
+    { id: 36, make: "Royal Enfield", model: "Classic 350", type: "Cruiser", pricePerDay: 800, seats: 2, fuelType: "Petrol", mileage: "35 kmpl", features: ["Tripper Nav", "ABS"], image: "https://example.com/classic350.jpg" },
+    { id: 37, make: "KTM", model: "Duke 390", type: "Sports", pricePerDay: 1200, seats: 2, fuelType: "Petrol", mileage: "25 kmpl", features: ["TFT Display", "Cornering ABS"], image: "https://example.com/duke390.jpg" },
+    { id: 38, make: "Harley Davidson", model: "X440", type: "Cruiser", pricePerDay: 2000, seats: 2, fuelType: "Petrol", mileage: "22 kmpl", features: ["Torque Assist", "Keyless Ignition"], image: "https://example.com/x440.jpg" },
+    { id: 39, make: "Bajaj", model: "Dominar 400", type: "Sports Tourer", pricePerDay: 1000, seats: 2, fuelType: "Petrol", mileage: "27 kmpl", features: ["Dual Channel ABS", "LED Lights"], image: "https://example.com/dominar.jpg" },
+    { id: 40, make: "TVS", model: "Apache RR 310", type: "Sports", pricePerDay: 1500, seats: 2, fuelType: "Petrol", mileage: "30 kmpl", features: ["Race Tuned", "Quick Shifter"], image: "https://example.com/apache.jpg" },
+  
+    // 9️⃣ COMMUTER BIKES
+    { id: 41, make: "Hero", model: "Splendor Plus", type: "Commuter", pricePerDay: 400, seats: 2, fuelType: "Petrol", mileage: "65 kmpl", features: ["i3S Tech", "Side Stand Alarm"], image: "https://example.com/splendor.jpg" },
+    { id: 42, make: "Honda", model: "Shine 100", type: "Commuter", pricePerDay: 350, seats: 2, fuelType: "Petrol", mileage: "67 kmpl", features: ["Comfy Seat", "HET"], image: "https://example.com/shine.jpg" },
+    { id: 43, make: "Bajaj", model: "CT 110", type: "Commuter", pricePerDay: 300, seats: 2, fuelType: "Petrol", mileage: "70 kmpl", features: ["Durable", "Low Maintenance"], image: "https://example.com/ct110.jpg" },
+    { id: 44, make: "TVS", model: "Radeon", type: "Commuter", pricePerDay: 380, seats: 2, fuelType: "Petrol", mileage: "62 kmpl", features: ["Long Seat", "Mobile Charger"], image: "https://example.com/radon.jpg" },
+    { id: 45, make: "Royal Enfield", model: "Hunter 350", type: "Commuter", pricePerDay: 700, seats: 2, fuelType: "Petrol", mileage: "36 kmpl", features: ["Tripper Nav", "ABS"], image: "https://example.com/hunter.jpg" },
+  
+    // 🔟 SCOOTERS
+    { id: 46, make: "Honda", model: "Activa 125", type: "Scooter", pricePerDay: 350, seats: 2, fuelType: "Petrol", mileage: "45 kmpl", features: ["Idle Stop", "External Fuel Lid"], image: "https://example.com/activa.jpg" },
+    { id: 47, make: "Suzuki", model: "Access 125", type: "Scooter", pricePerDay: 380, seats: 2, fuelType: "Petrol", mileage: "48 kmpl", features: ["SEP Engine", "Digital Console"], image: "https://example.com/access.jpg" },
+    { id: 48, make: "TVS", model: "Jupiter", type: "Scooter", pricePerDay: 320, seats: 2, fuelType: "Petrol", mileage: "50 kmpl", features: ["Telescopic Suspension", "Mobile Charger"], image: "https://example.com/jupiter.jpg" },
+    { id: 49, make: "Yamaha", model: "Fascino 125", type: "Scooter", pricePerDay: 400, seats: 2, fuelType: "Petrol", mileage: "49 kmpl", features: ["Blue Core", "LED Lights"], image: "https://example.com/fascino.jpg" },
+    { id: 50, make: "Ola", model: "S1 Pro", type: "Electric Scooter", pricePerDay: 500, seats: 2, range: "195 km", chargeTime: "6.5 hrs", features: ["Hyper Mode", "Touchscreen"], image: "https://example.com/ola.jpg" }
+  ];
