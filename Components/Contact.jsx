@@ -1,118 +1,79 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import { vehicle } from './Cars';  // Ensure you have this data in Cars.js file
 
-function Contact() {
+function BrowseVehicle() {
+  const [category, setCategory] = useState('cars'); // Default category is 'cars'
+  const [currentIndex, setCurrentIndex] = useState(0); // Track the current image in the slideshow
+
+  // Filter vehicles based on the selected category
+  const filteredVehicles = vehicle.filter(item => item.category === category);
+
+  // Change the current image index automatically every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % filteredVehicles.length);
+    }, 3000);
+    return () => clearInterval(interval); // Clear the interval when component unmounts
+  }, [category, filteredVehicles.length]);
+
+  // Check if we have vehicles in the selected category
+  if (filteredVehicles.length === 0) {
+    return <div>No vehicles available in this category.</div>;
+  }
+
   return (
-    // <div className='bg-blue-500'>
-    // <p>this is contact section</p>
-    //</div>
-    <div className=" bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 ">
-      <img
-        src="../src/assets/contact-us-communication-support-service-assistance-concept.jpg"
-        className="h-full w-full"
-      />
-      <h1 className="flex justify-center text-3xl font-bold text-gray-800 p-2">
-        Let's Start a Conversation
-      </h1>
-      <div className=" mx-auto bg-white shadow-xl rounded-2xl p-8 items-center justify-center flex">
-        {/* Left side: Contact Form */}
-        <div className="">
-          <h2 className="text-center text-3xl font-bold text-gray-800 mb-4">
-            Get in Touch
-          </h2>
-          <p className="text-gray-600 mb-8">
-            We’d love to hear from you! Fill out the form below and we’ll get
-            back to you shortly.
-          </p>
-
-          <form className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Name
-              </label>
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="mt-1 block w-[500px] px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder="you@example.com"
-                className="mt-1 block w-[500px] px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Message
-              </label>
-              <textarea
-                rows="4"
-                placeholder="Type your message..."
-                className="mt-1 block w-[500px] px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition duration-300"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
+    <div className="relative min-h-screen">
+      {/* Category Buttons */}
+      <div className="flex justify-center space-x-8 mt-10">
+        <button
+          onClick={() => setCategory('cars')}
+          className={`bg-blue-600 text-white rounded-xl px-8 py-3 hover:bg-blue-500 ${category === 'cars' ? 'bg-blue-800' : ''}`}
+        >
+          Cars
+        </button>
+        <button
+          onClick={() => setCategory('bikes')}
+          className={`bg-blue-600 text-white rounded-xl px-8 py-3 hover:bg-blue-500 ${category === 'bikes' ? 'bg-blue-800' : ''}`}
+        >
+          Bikes
+        </button>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-10 mt-10">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h4 className="text-xl font-bold mb-4">RentMyRide</h4>
-            <p>
-              Your premium car rental service. Unleash your beast with every
-              ride.
-            </p>
-          </div>
-          <div>
-            <h5 className="font-semibold mb-2">Quick Links</h5>
-            <ul className="space-y-1">
-              <li>
-                <a href="#" className="hover:underline">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Contact
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Book Now
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h5 className="font-semibold mb-2">Contact Us</h5>
-            <p>Email: support@rentmyride.com</p>
-            <p>Phone: +91 98765 43210</p>
-            <p>Location: Pithoragarh, India</p>
-          </div>
+      {/* Slideshow for the selected category */}
+      <div className="relative w-full h-screen">
+        {/* Image slideshow */}
+        <img
+          src={filteredVehicles[currentIndex].carImage}
+          alt={filteredVehicles[currentIndex].CarName}
+          className="w-full h-full object-cover"
+        />
+
+        {/* Left arrow button for navigation */}
+        <button
+          className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black text-white p-4 rounded-r-xl"
+          onClick={() => setCurrentIndex((currentIndex - 1 + filteredVehicles.length) % filteredVehicles.length)}
+        >
+          &#8249;
+        </button>
+
+        {/* Right arrow button for navigation */}
+        <button
+          className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black text-white p-4 rounded-l-xl"
+          onClick={() => setCurrentIndex((currentIndex + 1) % filteredVehicles.length)}
+        >
+          &#8250;
+        </button>
+
+        {/* Vehicle Information */}
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white">
+          <h2 className="text-2xl font-bold">{filteredVehicles[currentIndex].CarName}</h2>
+          <p className="text-xl">{filteredVehicles[currentIndex].Company}</p>
+          <p className="text-lg">Price: Rs. {filteredVehicles[currentIndex].price}/hr</p>
+          <p className="text-lg">Model: {filteredVehicles[currentIndex].model}</p>
         </div>
-        <div className="text-center mt-8 text-gray-400 text-sm">
-          © 2025 RentMyRide. All rights reserved.
-        </div>
-      </footer>
+      </div>
     </div>
   );
 }
 
-export default Contact;
+export default BrowseVehicle;
