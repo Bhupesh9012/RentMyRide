@@ -4,6 +4,7 @@ import Services from './Services'
 import BrowseVehicle from './BrowseVehicle'
 import{Link} from "react-router-dom"
 import Login from './Login'
+import Rentyourvehicle from './Rentyourvehicle'
 
 const Home = () => {
   return (
