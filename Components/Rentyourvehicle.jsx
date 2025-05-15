@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaPhoneAlt, FaEnvelope, FaShoppingCart } from "react-icons/fa";
 
+
 const categories = ['Hatchback', 'SUV', 'Compact SUV', 'Sedan', 'Bike'];
 
 const vehicles = [
@@ -124,10 +125,19 @@ const AvailableVehicles = () => {
             />
             <h3 className="text-xl font-semibold">{vehicle.name}</h3>
             <p className="text-gray-400 mb-2">{vehicle.category}</p>
-            <Link to={`/rent/${vehicle.id}`}>
-              <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mt-2">
-                Rent
-              </button>
+            
+            <Link 
+              to={{
+                pathname: `/rent/${vehicle.id}`,
+                state: {
+                  vehicle,
+                  price: vehicle.price,
+                  duration: vehicle.duration
+                }
+              }}
+              className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded inline-block text-center"
+            >
+              Rent
             </Link>
           </div>
         ))}
